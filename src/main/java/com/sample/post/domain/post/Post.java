@@ -1,42 +1,35 @@
-package com.sample.post.domain.comment;
+package com.sample.post.domain.post;
 
 import com.sample.common.domain.PositiveIntegerCounter;
-import com.sample.post.domain.post.Post;
-import com.sample.post.domain.content.Content;
+import com.sample.post.domain.content.PostContent;
+import com.sample.post.domain.content.PostPublicationState;
 import com.sample.user.domain.User;
 
-public class Comment {
+public class Post {
 	private final Long id;
-	private final Post post;
 	private final User author;
-	private final Content content;
+	private final PostContent content;
 	private final PositiveIntegerCounter likeCount;
+	private PostPublicationState state;
 
-	public Comment(Long id, Post post, User author, Content content) {
-		if (author == null) {
-			throw new IllegalArgumentException();
-		}
-
-		if (post == null) {
-			throw new IllegalArgumentException();
-		}
-
-		if (content == null) {
+	public Post(Long id, User author, PostContent content) {
+		if(author == null){
 			throw new IllegalArgumentException();
 		}
 
 		this.id = id;
-		this.post = post;
 		this.author = author;
 		this.content = content;
 		this.likeCount = new PositiveIntegerCounter();
+		this.state = PostPublicationState.PUBLIC;
 	}
 
-	public void updateComment(User user, String updateContent) {
-		if (this.author.equals(user)) {
+	public void updatePost(User user, String updateContent, PostPublicationState state) {
+		if (!this.author.equals(user)) {
 			throw new IllegalArgumentException();
 		}
 
+		this.state = state;
 		this.content.updateContent(updateContent);
 	}
 

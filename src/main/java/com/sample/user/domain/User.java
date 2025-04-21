@@ -1,16 +1,18 @@
 package com.sample.user.domain;
 
+import com.sample.common.domain.PositiveIntegerCounter;
+
 public class User {
 	private final Long id;
 	private final UserInfo info;
-	private final UserRelationCounter followingCounter;
-	private final UserRelationCounter followerCounter;
+	private final PositiveIntegerCounter followingCounter;
+	private final PositiveIntegerCounter followerCounter;
 
 	public User(Long id, UserInfo info) {
 		this.id = id;
 		this.info = info;
-		followingCounter = new UserRelationCounter();
-		followerCounter = new UserRelationCounter();
+		followingCounter = new PositiveIntegerCounter();
+		followerCounter = new PositiveIntegerCounter();
 	}
 
 	public void follow(User targetUser) {
