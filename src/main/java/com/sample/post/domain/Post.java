@@ -1,5 +1,6 @@
 package com.sample.post.domain;
 
+import com.sample.post.domain.content.PostContent;
 import com.sample.user.domain.User;
 
 public class Post {
@@ -11,7 +12,7 @@ public class Post {
 		if(author == null){
 			throw new IllegalArgumentException();
 		}
-		
+
 		this.id = id;
 		this.author = author;
 		this.content = content;
