@@ -43,4 +43,12 @@ public class Post {
 	public void unlike() {
 		this.likeCount.decrease();
 	}
+
+	public int getLikeCount() {
+		return likeCount.getCount();
+	}
+
+	public String getContent() {
+		return content.getContentText();
+	}
 }

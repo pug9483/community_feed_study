@@ -3,8 +3,8 @@ package com.sample.post.domain.content;
 import com.sample.post.domain.common.DatetimeInfo;
 
 public abstract class Content {
-	String contentText;
-	final DatetimeInfo datetimeInfo;
+	protected String contentText;
+	protected final DatetimeInfo datetimeInfo;
 
 	protected Content(String contentText) {
 		checkText(contentText);
@@ -13,7 +13,7 @@ public abstract class Content {
 	}
 
 	public void updateContent(String updateContent) {
-		checkText(contentText);
+		checkText(updateContent);
 		this.contentText = updateContent;
 		this.datetimeInfo.updateEditDatetime();
 	}
