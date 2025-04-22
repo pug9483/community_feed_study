@@ -15,4 +15,8 @@ public class PositiveIntegerCounter {
 		if(count <= 0) return;
 		this.count--;
 	}
+
+	public int getCount() {
+		return count;
+	}
 }
