@@ -1,5 +1,7 @@
 package com.sample.user.domain;
 
+import java.util.Objects;
+
 import com.sample.common.domain.PositiveIntegerCounter;
 
 public class User {
@@ -8,9 +10,13 @@ public class User {
 	private final PositiveIntegerCounter followingCounter;
 	private final PositiveIntegerCounter followerCounter;
 
-	public User(Long id, UserInfo info) {
+	public User(Long id, UserInfo userInfo) {
+		if (userInfo == null) {
+			throw new IllegalArgumentException();
+		}
+
 		this.id = id;
-		this.info = info;
+		this.info = userInfo;
 		followingCounter = new PositiveIntegerCounter();
 		followerCounter = new PositiveIntegerCounter();
 	}
@@ -45,13 +51,30 @@ public class User {
 	}
 
 	@Override
-	public int hashCode() {
-		return super.hashCode();
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (!(o instanceof User user)) {
+			return false;
+		}
+		return Objects.equals(id, user.id);
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		return super.equals(obj);
+	public int hashCode() {
+		return Objects.hash(id);
 	}
 
+	public Long getId() {
+		return id;
+	}
+
+	public int followerCount() {
+		return followerCounter.getCount();
+	}
+
+	public int followingCount() {
+		return followingCounter.getCount();
+	}
 }
