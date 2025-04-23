@@ -7,7 +7,6 @@ import com.sample.post.domain.comment.Comment;
 import com.sample.post.domain.post.Post;
 import com.sample.post.interfaces.CommentRepository;
 import com.sample.post.interfaces.LikeRepository;
-import com.sample.post.interfaces.PostRepository;
 import com.sample.user.application.UserService;
 import com.sample.user.domain.User;
 

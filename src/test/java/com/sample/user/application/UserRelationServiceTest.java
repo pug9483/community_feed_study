@@ -2,6 +2,7 @@ package com.sample.user.application;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import com.sample.fake.FakeObjectFactory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -17,14 +18,12 @@ class UserRelationServiceTest {
 	/**
 	 * 첫 번째 유저와 두 번째 유저의 타겟이 다르기 때문에
 	 * 기존 유저별로 다르게 한 쌍의 유저의 유효성을 확인하고 넣어야 된다.
-	 *
+	 * <p>
 	 * 우리가 필요한건 저장이랑 확인이다.
 	 * 테스트 내부에서만 사용되는 레코드를 넣어서 페이크 객체를 만든다.
 	 */
-	private final UserRepository userRepository = new FakeUserRepository();
-	private final UserService userService = new UserService(userRepository);
-	private final UserRelationRepository userRelationRepository = new FakeUserRelationRepository();
-	private final UserRelationService userRelationService = new UserRelationService(userService, userRelationRepository);
+	private final UserService userService = FakeObjectFactory.getUserService();
+	private final UserRelationService userRelationService = FakeObjectFactory.getUserRelationService();
 
 	private User user1;
 	private User user2;
