@@ -2,12 +2,15 @@ package com.sample.user.repository.entity;
 
 import com.sample.common.domain.PositiveIntegerCounter;
 import com.sample.common.repository.entity.TimeBaseEntity;
+import com.sample.post.repository.entity.PostEntity;
 import com.sample.user.domain.User;
 import com.sample.user.domain.UserInfo;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Table(name = "community_user")

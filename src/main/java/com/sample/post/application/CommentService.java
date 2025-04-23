@@ -5,8 +5,8 @@ import com.sample.post.application.dto.LikeRequestDto;
 import com.sample.post.application.dto.UpdateCommentRequestDto;
 import com.sample.post.domain.comment.Comment;
 import com.sample.post.domain.post.Post;
-import com.sample.post.interfaces.CommentRepository;
-import com.sample.post.interfaces.LikeRepository;
+import com.sample.post.application.interfaces.CommentRepository;
+import com.sample.post.application.interfaces.LikeRepository;
 import com.sample.user.application.UserService;
 import com.sample.user.domain.User;
 

@@ -2,7 +2,7 @@ package com.sample.post.repository;
 
 import com.sample.post.domain.comment.Comment;
 import com.sample.post.domain.post.Post;
-import com.sample.post.interfaces.LikeRepository;
+import com.sample.post.application.interfaces.LikeRepository;
 import com.sample.user.domain.User;
 
 import java.util.HashMap;

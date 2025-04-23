@@ -1,4 +1,4 @@
-package com.sample.post.interfaces;
+package com.sample.post.application.interfaces;
 
 import com.sample.post.domain.comment.Comment;
 import com.sample.post.domain.post.Post;

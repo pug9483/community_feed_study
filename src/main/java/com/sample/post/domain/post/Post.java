@@ -5,9 +5,15 @@ import com.sample.post.domain.content.Content;
 import com.sample.post.domain.content.PostContent;
 import com.sample.post.domain.content.PostPublicationState;
 import com.sample.user.domain.User;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
 
 import static com.sample.post.domain.content.PostPublicationState.PUBLIC;
 
+@Builder
+@AllArgsConstructor
+@Getter
 public class Post {
 	private final Long id;
 	private final User author;
@@ -63,16 +69,8 @@ public class Post {
 		return likeCount.getCount();
 	}
 
-	public Long getId() {
-		return id;
-	}
-
 	public String getContent() {
 		return content.getContentText();
-	}
-
-	public User getAuthor() {
-		return author;
 	}
 
 	public Content getContentObject() {

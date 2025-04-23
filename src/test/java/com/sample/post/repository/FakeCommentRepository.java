@@ -1,8 +1,7 @@
 package com.sample.post.repository;
 
 import com.sample.post.domain.comment.Comment;
-import com.sample.post.domain.post.Post;
-import com.sample.post.interfaces.CommentRepository;
+import com.sample.post.application.interfaces.CommentRepository;
 
 import java.util.HashMap;
 import java.util.Map;

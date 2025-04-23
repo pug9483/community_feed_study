@@ -2,9 +2,9 @@ package com.sample.fake;
 
 import com.sample.post.application.CommentService;
 import com.sample.post.application.PostService;
-import com.sample.post.interfaces.CommentRepository;
-import com.sample.post.interfaces.LikeRepository;
-import com.sample.post.interfaces.PostRepository;
+import com.sample.post.application.interfaces.CommentRepository;
+import com.sample.post.application.interfaces.LikeRepository;
+import com.sample.post.application.interfaces.PostRepository;
 import com.sample.post.repository.FakeCommentRepository;
 import com.sample.post.repository.FakeLikeRepository;
 import com.sample.post.repository.FakePostRepository;

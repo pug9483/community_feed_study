@@ -4,8 +4,8 @@ import com.sample.post.application.dto.CreatePostRequestDto;
 import com.sample.post.application.dto.LikeRequestDto;
 import com.sample.post.application.dto.UpdatePostRequestDto;
 import com.sample.post.domain.post.Post;
-import com.sample.post.interfaces.LikeRepository;
-import com.sample.post.interfaces.PostRepository;
+import com.sample.post.application.interfaces.LikeRepository;
+import com.sample.post.application.interfaces.PostRepository;
 import com.sample.user.application.UserService;
 import com.sample.user.domain.User;
 

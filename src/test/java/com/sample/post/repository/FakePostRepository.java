@@ -1,7 +1,7 @@
 package com.sample.post.repository;
 
 import com.sample.post.domain.post.Post;
-import com.sample.post.interfaces.PostRepository;
+import com.sample.post.application.interfaces.PostRepository;
 
 import java.util.HashMap;
 import java.util.Map;
