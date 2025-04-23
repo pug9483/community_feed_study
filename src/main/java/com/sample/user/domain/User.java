@@ -3,7 +3,16 @@ package com.sample.user.domain;
 import java.util.Objects;
 
 import com.sample.common.domain.PositiveIntegerCounter;
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
 
+import static lombok.AccessLevel.PROTECTED;
+
+@Getter
+@Builder
+@AllArgsConstructor(access = PROTECTED)
 public class User {
 	private final Long id;
 	private final UserInfo info;
@@ -63,11 +72,7 @@ public class User {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id);
-	}
-
-	public Long getId() {
-		return id;
+		return Objects.hashCode(id);
 	}
 
 	public int followerCount() {
@@ -78,7 +83,11 @@ public class User {
 		return followingCounter.getCount();
 	}
 
-	public UserInfo getInfo() {
-		return info;
+	public String getProfileImage() {
+		return info.getProfileImageUrl();
+	}
+
+	public String getName() {
+		return info.getName();
 	}
 }
