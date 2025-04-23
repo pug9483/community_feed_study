@@ -1,18 +1,14 @@
 package com.sample.user.application;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import com.sample.fake.FakeObjectFactory;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import com.sample.user.application.dto.CreateUserRequestDto;
 import com.sample.user.application.dto.FollowUserRequestDto;
 import com.sample.user.domain.User;
-import com.sample.user.interfaces.UserRelationRepository;
-import com.sample.user.interfaces.UserRepository;
-import com.sample.user.repository.FakeUserRelationRepository;
-import com.sample.user.repository.FakeUserRepository;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class UserRelationServiceTest {
 	/**

@@ -1,15 +1,12 @@
 package com.sample.user.application;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import com.sample.fake.FakeObjectFactory;
-import org.junit.jupiter.api.Test;
-
 import com.sample.user.application.dto.CreateUserRequestDto;
 import com.sample.user.domain.User;
 import com.sample.user.domain.UserInfo;
-import com.sample.user.interfaces.UserRepository;
-import com.sample.user.repository.FakeUserRepository;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class UserServiceTest {
 	private final UserService userService = FakeObjectFactory.getUserService();

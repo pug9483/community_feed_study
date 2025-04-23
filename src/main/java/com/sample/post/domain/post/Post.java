@@ -15,8 +15,8 @@ public class Post {
 	private final PositiveIntegerCounter likeCount;
 	private PostPublicationState state;
 
-	public static Post createPost(Long id, User author, String content, PostPublicationState state) {
-		return new Post(id, author, new PostContent(content), state);
+	public static Post createPost(User author, String content, PostPublicationState state) {
+		return new Post(null, author, new PostContent(content), state);
 	}
 
 	public static Post createDefaultPost(Long id, User author, String content) {
