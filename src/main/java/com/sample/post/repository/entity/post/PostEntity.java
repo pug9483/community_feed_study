@@ -1,4 +1,4 @@
-package com.sample.post.repository.entity;
+package com.sample.post.repository.entity.post;
 
 import com.sample.common.domain.PositiveIntegerCounter;
 import com.sample.common.repository.entity.TimeBaseEntity;
@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 
 import static jakarta.persistence.ConstraintMode.NO_CONSTRAINT;
 import static jakarta.persistence.FetchType.LAZY;
+import static jakarta.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "community_post")
@@ -21,7 +22,7 @@ import static jakarta.persistence.FetchType.LAZY;
 @Getter
 public class PostEntity extends TimeBaseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = LAZY)

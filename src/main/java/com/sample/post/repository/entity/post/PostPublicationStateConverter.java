@@ -1,4 +1,4 @@
-package com.sample.post.repository.entity;
+package com.sample.post.repository.entity.post;
 
 import com.sample.post.domain.content.PostPublicationState;
 import jakarta.persistence.AttributeConverter;

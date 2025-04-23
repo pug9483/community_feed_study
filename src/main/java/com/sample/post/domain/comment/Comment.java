@@ -5,7 +5,13 @@ import com.sample.post.domain.content.CommentContent;
 import com.sample.post.domain.post.Post;
 import com.sample.post.domain.content.Content;
 import com.sample.user.domain.User;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
 
+@Builder
+@AllArgsConstructor
+@Getter
 public class Comment {
 	private final Long id;
 	private final Post post;
@@ -54,18 +60,6 @@ public class Comment {
 
 	public void unlike() {
 		this.likeCount.decrease();
-	}
-
-	public Post getPost() {
-		return post;
-	}
-
-	public User getAuthor() {
-		return author;
-	}
-
-	public Long getId() {
-		return id;
 	}
 
 	public int getLikeCount() {
