@@ -2,7 +2,7 @@ package com.sample.user.application;
 
 import com.sample.user.application.dto.FollowUserRequestDto;
 import com.sample.user.domain.User;
-import com.sample.user.interfaces.UserRelationRepository;
+import com.sample.user.application.interfaces.UserRelationRepository;
 
 public class UserRelationService {
 	private final UserService userService;

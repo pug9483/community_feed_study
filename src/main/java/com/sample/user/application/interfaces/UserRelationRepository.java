@@ -1,4 +1,4 @@
-package com.sample.user.interfaces;
+package com.sample.user.application.interfaces;
 
 import com.sample.user.domain.User;
 

@@ -10,7 +10,7 @@ import com.sample.post.repository.FakeLikeRepository;
 import com.sample.post.repository.FakePostRepository;
 import com.sample.user.application.UserRelationService;
 import com.sample.user.application.UserService;
-import com.sample.user.interfaces.UserRelationRepository;
+import com.sample.user.application.interfaces.UserRelationRepository;
 import com.sample.user.repository.FakeUserRelationRepository;
 import com.sample.user.repository.FakeUserRepository;
 

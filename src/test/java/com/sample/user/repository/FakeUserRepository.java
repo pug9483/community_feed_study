@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Optional;
 
 import com.sample.user.domain.User;
-import com.sample.user.interfaces.UserRepository;
+import com.sample.user.application.interfaces.UserRepository;
 
 public class FakeUserRepository implements UserRepository {
 	private final Map<Long, User> store = new HashMap<>();
@@ -22,7 +22,7 @@ public class FakeUserRepository implements UserRepository {
 	}
 
 	@Override
-	public Optional<User> findById(Long id) {
-		return Optional.ofNullable(store.get(id));
+	public User findById(Long id) {
+		return store.get(id);
 	}
 }
