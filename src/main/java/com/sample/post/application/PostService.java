@@ -8,7 +8,9 @@ import com.sample.post.application.interfaces.LikeRepository;
 import com.sample.post.application.interfaces.PostRepository;
 import com.sample.user.application.UserService;
 import com.sample.user.domain.User;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PostService {
     private final UserService userService;
     private final PostRepository postRepository;
@@ -21,13 +23,12 @@ public class PostService {
     }
 
     public Post getPost(Long id) {
-        return postRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Post not found"));
+        return postRepository.findById(id);
     }
 
     public Post createPost(CreatePostRequestDto createPostRequestDto) {
         User author = userService.getUser(createPostRequestDto.userId());
-        Post post = Post.createPost(author, createPostRequestDto.content(), createPostRequestDto.state());
-
+        Post post = new Post(null, author, createPostRequestDto.content());
         return postRepository.save(post);
     }
 

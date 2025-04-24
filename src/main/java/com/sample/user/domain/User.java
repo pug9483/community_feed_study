@@ -12,7 +12,7 @@ import static lombok.AccessLevel.PROTECTED;
 
 @Getter
 @Builder
-@AllArgsConstructor(access = PROTECTED)
+@AllArgsConstructor
 public class User {
 	private final Long id;
 	private final UserInfo info;

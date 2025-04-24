@@ -10,6 +10,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.DynamicUpdate;
 
+import static jakarta.persistence.GenerationType.IDENTITY;
+
 @Entity
 @Table(name = "community_user")
 @NoArgsConstructor
@@ -18,7 +20,7 @@ import org.hibernate.annotations.DynamicUpdate;
 @Getter
 public class UserEntity extends TimeBaseEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = IDENTITY)
     private Long id;
     private String name;
     private String profileImage;

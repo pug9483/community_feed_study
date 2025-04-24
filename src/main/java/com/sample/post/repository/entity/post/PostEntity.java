@@ -25,7 +25,7 @@ public class PostEntity extends TimeBaseEntity {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = LAZY)
+    @ManyToOne
     @JoinColumn(name="author_id", foreignKey = @ForeignKey(NO_CONSTRAINT))
     private UserEntity author;
 

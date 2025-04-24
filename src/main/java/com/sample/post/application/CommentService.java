@@ -24,7 +24,7 @@ public class CommentService {
     }
 
     public Comment getComment(Long id) {
-        return commentRepository.findById(id).orElseThrow(IllegalArgumentException::new);
+        return commentRepository.findById(id);
     }
 
     public Comment createComment(CreateCommentRequestDto createCommentRequestDto) {
