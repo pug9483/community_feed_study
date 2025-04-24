@@ -3,7 +3,10 @@ package com.sample.user.application;
 import com.sample.user.application.dto.FollowUserRequestDto;
 import com.sample.user.domain.User;
 import com.sample.user.application.interfaces.UserRelationRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserRelationService {
 	private final UserService userService;
 	private final UserRelationRepository userRelationRepository;

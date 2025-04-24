@@ -8,11 +8,13 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
 @Table(name = "community_user")
 @NoArgsConstructor
 @AllArgsConstructor
+@DynamicUpdate
 @Getter
 public class UserEntity extends TimeBaseEntity {
     @Id

@@ -5,18 +5,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
 import jakarta.persistence.Table;
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import static lombok.AccessLevel.PRIVATE;
-import static lombok.AccessLevel.PROTECTED;
-
 @Entity
 @Table(name = "community_user_relation")
-@NoArgsConstructor(access = PROTECTED)
-@AllArgsConstructor(access = PRIVATE)
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @IdClass(UserRelationIdEntity.class)
 public class UserRelationEntity extends TimeBaseEntity {

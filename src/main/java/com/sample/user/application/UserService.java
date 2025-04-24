@@ -1,10 +1,13 @@
 package com.sample.user.application;
 
 import com.sample.user.application.dto.CreateUserRequestDto;
+import com.sample.user.application.dto.GetUserResponseDto;
 import com.sample.user.domain.User;
 import com.sample.user.domain.UserInfo;
 import com.sample.user.application.interfaces.UserRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UserService {
 	private final UserRepository userRepository;
 
@@ -20,5 +23,10 @@ public class UserService {
 
 	public User getUser(Long id) {
 		return userRepository.findById(id);
+	}
+
+	public GetUserResponseDto getUserProfile(Long id) {
+		User user = getUser(id);
+		return new GetUserResponseDto(user);
 	}
 }
