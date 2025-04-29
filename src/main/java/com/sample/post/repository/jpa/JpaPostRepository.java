@@ -11,6 +11,13 @@ public interface JpaPostRepository extends JpaRepository<PostEntity, Long> {
             "SET p.content = :#{#postEntity.getContent()}, " +
             "p.state = :#{#postEntity.getState()}, " +
             "p.updDt = now() " +
-            "WHERE p.id = :#{#postEntity.id}")
+            "WHERE p.id = :#{#postEntity.getId()}")
     void updatePostEntity(PostEntity postEntity);
+
+    @Modifying
+    @Query(value = "UPDATE PostEntity p " +
+            "SET p.likeCount = :#{#postEntity.getLikeCount()}, "  +
+            "p.updDt = now() " +
+            "WHERE p.id = :#{#postEntity.getId()}")
+    void updatePostLikeCount(PostEntity postEntity);
 }

@@ -36,11 +36,11 @@ public class JpaUserListPagingQueryRepository {
                 .fetch();
     }
 
-    public BooleanExpression hasLastData(Long lastFollowerId) {
-        if (lastFollowerId == null) {
+    public BooleanExpression hasLastData(Long lastId) {
+        if (lastId == null) {
             return null;
         }
 
-        return user.id.lt(lastFollowerId);
+        return user.id.lt(lastId);
     }
 }
