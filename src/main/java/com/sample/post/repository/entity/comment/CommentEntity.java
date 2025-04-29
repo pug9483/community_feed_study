@@ -26,7 +26,7 @@ public class CommentEntity extends TimeBaseEntity {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name="user_id", foreignKey = @ForeignKey(NO_CONSTRAINT))
+    @JoinColumn(name="author_id", foreignKey = @ForeignKey(NO_CONSTRAINT))
     private UserEntity author;
 
     @ManyToOne
