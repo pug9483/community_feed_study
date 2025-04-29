@@ -7,11 +7,13 @@ import com.sample.post.domain.content.Content;
 import com.sample.user.domain.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 @Builder
 @AllArgsConstructor
 @Getter
+@EqualsAndHashCode
 public class Comment {
 	private final Long id;
 	private final Post post;
@@ -25,15 +27,15 @@ public class Comment {
 
 	public Comment(Long id, Post post, User author, Content content) {
 		if (author == null) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("author should not be null");
 		}
 
 		if (post == null) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("post should not be null");
 		}
 
 		if (content == null) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("conent should not be null");
 		}
 
 		this.id = id;
@@ -45,7 +47,7 @@ public class Comment {
 
 	public void updateComment(User user, String updateContent) {
 		if (!this.author.equals(user)) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("only author can update the comment");
 		}
 
 		this.content.updateContent(updateContent);
@@ -53,7 +55,7 @@ public class Comment {
 
 	public void like(User user) {
 		if (this.author.equals(user)) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("author cannot like their own comment");
 		}
 		this.likeCount.increase();
 	}

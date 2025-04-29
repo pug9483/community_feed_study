@@ -9,19 +9,17 @@ import com.sample.post.application.interfaces.CommentRepository;
 import com.sample.post.application.interfaces.LikeRepository;
 import com.sample.user.application.UserService;
 import com.sample.user.domain.User;
+import jakarta.transaction.Transactional;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
+@Service
+@RequiredArgsConstructor
 public class CommentService {
     private final UserService userService;
     private final PostService postService;
     private final CommentRepository commentRepository;
     private final LikeRepository likeRepository;
-
-    public CommentService(UserService userService, PostService postService, CommentRepository commentRepository, LikeRepository likeRepository) {
-        this.userService = userService;
-        this.postService = postService;
-        this.commentRepository = commentRepository;
-        this.likeRepository = likeRepository;
-    }
 
     public Comment getComment(Long id) {
         return commentRepository.findById(id);
@@ -35,10 +33,9 @@ public class CommentService {
         return commentRepository.save(comment);
     }
 
-    public Comment updateComment(UpdateCommentRequestDto updateCommentRequestDto) {
-        Comment comment = getComment(updateCommentRequestDto.commentId());
+    public Comment updateComment(Long commentId, UpdateCommentRequestDto updateCommentRequestDto) {
+        Comment comment = getComment(commentId);
         User user = userService.getUser(updateCommentRequestDto.userId());
-
         comment.updateComment(user, updateCommentRequestDto.content());
         return commentRepository.save(comment);
     }

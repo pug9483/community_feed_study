@@ -25,11 +25,11 @@ public class CommentEntity extends TimeBaseEntity {
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = LAZY)
+    @ManyToOne
     @JoinColumn(name="user_id", foreignKey = @ForeignKey(NO_CONSTRAINT))
     private UserEntity author;
 
-    @ManyToOne(fetch = LAZY)
+    @ManyToOne
     @JoinColumn(name="post_id", foreignKey = @ForeignKey(NO_CONSTRAINT))
     private PostEntity post;
 

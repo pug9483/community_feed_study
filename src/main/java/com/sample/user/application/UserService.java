@@ -5,15 +5,13 @@ import com.sample.user.application.dto.GetUserResponseDto;
 import com.sample.user.domain.User;
 import com.sample.user.domain.UserInfo;
 import com.sample.user.application.interfaces.UserRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
 	private final UserRepository userRepository;
-
-	public UserService(UserRepository userRepository) {
-		this.userRepository = userRepository;
-	}
 
 	public User createUser(CreateUserRequestDto dto) {
 		UserInfo info = new UserInfo(dto.name(), dto.profileImageUrl());

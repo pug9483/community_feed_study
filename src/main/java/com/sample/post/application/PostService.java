@@ -8,19 +8,15 @@ import com.sample.post.application.interfaces.LikeRepository;
 import com.sample.post.application.interfaces.PostRepository;
 import com.sample.user.application.UserService;
 import com.sample.user.domain.User;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class PostService {
     private final UserService userService;
     private final PostRepository postRepository;
     private final LikeRepository likeRepository;
-
-    public PostService(UserService userService, PostRepository postRepository, LikeRepository likeRepository) {
-        this.userService = userService;
-        this.postRepository = postRepository;
-        this.likeRepository = likeRepository;
-    }
 
     public Post getPost(Long id) {
         return postRepository.findById(id);
