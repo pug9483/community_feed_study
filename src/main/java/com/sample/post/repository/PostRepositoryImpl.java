@@ -4,6 +4,7 @@ import com.sample.post.application.interfaces.PostRepository;
 import com.sample.post.domain.post.Post;
 import com.sample.post.repository.entity.post.PostEntity;
 import com.sample.post.repository.jpa.JpaPostRepository;
+import com.sample.post.repository.post_queue.UserPostQueueCommandRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,10 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 public class PostRepositoryImpl implements PostRepository {
     private final JpaPostRepository jpaPostRepository;
+    private final UserPostQueueCommandRepository commandRepository;
 
-    /**
-     * 불필요한 Select 쿼리를 줄이기 위해 update 쿼리로 대체
-     */
     @Override
     @Transactional
     public Post save(Post post) {
@@ -25,6 +24,7 @@ public class PostRepositoryImpl implements PostRepository {
             return postEntity.toPost();
         }
         postEntity = jpaPostRepository.save(postEntity);
+        commandRepository.publishPost(postEntity);
         return postEntity.toPost();
     }
 

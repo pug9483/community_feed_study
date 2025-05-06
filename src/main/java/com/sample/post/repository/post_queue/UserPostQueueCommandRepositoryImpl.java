@@ -7,6 +7,7 @@ import com.sample.post.repository.jpa.JpaPostRepository;
 import com.sample.post.repository.jpa.JpaUserPostQueueRepository;
 import com.sample.user.repository.entity.UserEntity;
 import com.sample.user.repository.jpa.JpaUserRelationRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -20,6 +21,7 @@ public class UserPostQueueCommandRepositoryImpl implements UserPostQueueCommandR
     private final JpaUserPostQueueRepository jpaUserPostQueueRepository;
 
     @Override
+    @Transactional
     public void publishPost(PostEntity postEntity) {
         UserEntity userEntity = postEntity.getAuthor();
         List<Long> followersIds = jpaUserRelationRepository.findFollowers(userEntity.getId());
@@ -32,12 +34,20 @@ public class UserPostQueueCommandRepositoryImpl implements UserPostQueueCommandR
     }
 
     @Override
+    @Transactional
     public void saveFollowPost(Long userId, Long targetId) {
+        List<Long> postIds = jpaPostRepository.findAllPostIdsByAuthorId(targetId);
 
+        List<UserPostQueueEntity> userPostQueueEntities = postIds.stream()
+                .map(postId -> new UserPostQueueEntity(postId, userId, targetId))
+                .toList();
+
+        jpaUserPostQueueRepository.saveAll(userPostQueueEntities);
     }
 
     @Override
+    @Transactional
     public void deleteUnfollowPost(Long userId, Long targetId) {
-
+        jpaUserPostQueueRepository.deleteAllByUserIdAndAuthorId(userId, targetId);
     }
 }
