@@ -1,7 +1,6 @@
 package com.sample.post.ui;
 
 import com.sample.post.repository.post_queue.UserPostQueueQueryRepository;
-import com.sample.post.repository.post_queue.UserPostQueueQueryRepositoryImpl;
 import com.sample.post.ui.dto.GetPostContentResponseDto;
 import com.sample.ui.Response;
 import lombok.RequiredArgsConstructor;

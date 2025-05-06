@@ -12,7 +12,6 @@ import lombok.Getter;
 
 import static com.sample.post.domain.content.PostPublicationState.PUBLIC;
 
-@Builder
 @Getter
 @EqualsAndHashCode
 public class Post {
@@ -48,7 +47,7 @@ public class Post {
 
 	public void updatePost(User user, String updateContent, PostPublicationState state) {
 		if (!this.author.equals(user)) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("only author can update the post");
 		}
 
 		this.state = state;
@@ -57,7 +56,7 @@ public class Post {
 
 	public void like(User user) {
 		if (this.author.equals(user)) {
-			throw new IllegalArgumentException();
+			throw new IllegalArgumentException("author cannot like their own post");
 		}
 		this.likeCount.increase();
 	}

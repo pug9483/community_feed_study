@@ -34,6 +34,6 @@ public interface JpaPostRepository extends JpaRepository<PostEntity, Long> {
     List<Long> findAllPostIdsByAuthorId(Long authorId);
 
     @Modifying
-    @Query("UPDATE PostEntity p SET p.commentCounter = p.commentCounter + 1 WHERE p.id = :postId")
+    @Query("UPDATE PostEntity p SET p.commentCount = p.commentCount + 1 WHERE p.id = :postId")
     void increaseCommentCounter(Long postId);
 }

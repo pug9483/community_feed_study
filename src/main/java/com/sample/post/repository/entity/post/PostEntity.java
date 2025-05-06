@@ -54,7 +54,7 @@ public class PostEntity extends TimeBaseEntity {
                 .author(author.toUser())
                 .content(new PostContent(content))
                 .state(state)
-                .likeCount(new PositiveIntegerCounter(likeCount))
+                .positiveIntegerCounter(new PositiveIntegerCounter(likeCount))
                 .build();
     }
 }
