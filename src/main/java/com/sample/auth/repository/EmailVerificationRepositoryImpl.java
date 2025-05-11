@@ -53,4 +53,11 @@ public class EmailVerificationRepositoryImpl implements EmailVerificationReposit
 
         entity.verify();
     }
+
+    @Override
+    public boolean isEmailVerified(Email email) {
+        EmailVerificationEntity entity = jpaEmailVerificationRepository.findByEmail(email.getEmailText())
+                .orElseThrow(() -> new IllegalArgumentException("Email not found"));
+        return entity.isVerified();
+    }
 }
